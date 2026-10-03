@@ -4,7 +4,16 @@ export const authClient = createAuthClient({
     baseURL: "http://localhost:3000"
 })
 
-export const { signIn, signUp, signOut, useSession } = createAuthClient()
+export const { 
+    signIn,
+    signUp,
+    signOut,
+    updateUser,
+    requestPasswordReset,
+    resetPassword, 
+    useSession ,
+  
+} = createAuthClient()
 
 /**
  * sign up: register : create Account: first time user

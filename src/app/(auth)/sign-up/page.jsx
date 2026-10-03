@@ -1,5 +1,5 @@
 "use client";
-import { signUp } from "@/lib/auth-client";
+import { signIn, signUp } from "@/lib/auth-client";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 
 
@@ -19,8 +19,21 @@ const SignUpPage = () => {
             password: data.password
         });
 
-        console.log(resData, error)
+        console.log('After Sign Up',resData, error)
     };
+
+    const handleGoogleSignIn = async()=>{
+const resData= await signIn.social({
+    provider:"google"
+
+    
+})
+
+console.log("After Google Signin", resData);
+    }
+
+
+
 
     return (
         <div>
@@ -89,6 +102,11 @@ const SignUpPage = () => {
                     </Button>
                 </div>
             </Form>
+
+            <p>or</p>
+
+            <Button onClick={handleGoogleSignIn}>Signin with google</Button>
+        
         </div>
     );
 };
